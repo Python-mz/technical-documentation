@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation</title>
+    <link rel="stylesheet" href="technical styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>Topics</header>
+        <ul>
+            <li><a href="#OOP_Basics" class="nav-link">OOP Basics</a></li>
+            <li><a href="#Classes_and_Objects" class="nav-link">Classes and Objects</a></li>
+            <li><a href="#Inheritance" class="nav-link">Inheritance</a></li>
+            <li><a href="#Encapsulation" class="nav-link">Encapsulation</a></li>
+            <li><a href="#Polymorphism" class="nav-link">Polymorphism</a></li>
+            <li><a href="#Abstraction" class="nav-link">Abstraction</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        
+        <section class="main-section" id="OOP_Basics">
+            <header>OOP Basics</header>
+            <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects".</p>
+            <p>OOP allows for the organization of code into reusable components.</p>
+            <p>Key concepts of OOP include Classes, Objects, Inheritance, Encapsulation, Polymorphism, and Abstraction.</p>
+        </section>
+        
+        <section class="main-section" id="Classes_and_Objects">
+            <header>Classes and Objects</header>
+            <p>A class is a blueprint for creating objects. It defines properties and methods that the created objects will have.</p>
+            <p>An object is an instance of a class. It contains data and methods that operate on that data.</p>
+            <p>Example:</p>
+            <pre><code>
+class Car {
+    constructor(brand, model) {
+        this.brand = brand;
+        this.model = model;
+    }
+    
+    displayInfo() {
+        return `Car: ${this.brand} ${this.model}`;
+    }
+}
+
+let myCar = new Car('Toyota', 'Corolla');
+console.log(myCar.displayInfo()); // Output: Car: Toyota Corolla
+            </code></pre>
+        </section>
+        
+        <section class="main-section" id="Inheritance">
+            <header>Inheritance</header>
+            <p>Inheritance allows a class to inherit properties and methods from another class.</p>
+            <p>This promotes code reusability and establishes a relationship between classes.</p>
+            <p>Example:</p>
+            <pre><code>
+class Vehicle {
+    constructor(brand) {
+        this.brand = brand;
+    }
+    
+    displayBrand() {
+        return `Brand: ${this.brand}`;
+    }
+}
+
+class Car extends Vehicle {
+    constructor(brand, model) {
+        super(brand);
+        this.model = model;
+    }
+    
+    displayInfo() {
+        return `${super.displayBrand()} Model: ${this.model}`;
+    }
+}
+
+let myCar = new Car('Toyota', 'Corolla');
+console.log(myCar.displayInfo()); // Output: Brand: Toyota Model: Corolla
+            </code></pre>
+        </section>
+        
+        <section class="main-section" id="Encapsulation">
+            <header>Encapsulation</header>
+            <p>Encapsulation is the bundling of data and methods that operate on that data within one unit, typically a class.</p>
+            <p>It restricts direct access to some of an object's components, which is a means of preventing unintended interference and misuse.</p>
+            <p>Example:</p>
+            <pre><code>
+class BankAccount {
+    constructor(accountNumber, balance) {
+        this.accountNumber = accountNumber;
+        this._balance = balance; // Private property
+    }
+
+    deposit(amount) {
+        this._balance += amount;
+    }
+
+    getBalance() {
+        return this._balance;
+    }
+}
+
+let account = new BankAccount('123456', 1000);
+account.deposit(500);
+console.log(account.getBalance()); // Output: 1500
+            </code></pre>
+        </section>
+        
+        <section class="main-section" id="Polymorphism">
+            <header>Polymorphism</header>
+            <p>Polymorphism allows methods to do different things based on the object it is called on, even if they share the same name.</p>
+            <p>This can be achieved through method overriding and method overloading.</p>
+            <p>Example:</p>
+            <pre><code>
+class Animal {
+    speak() {
+        console.log("Animal speaks");
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    speak() {
+        console.log("Cat meows");
+    }
+}
+
+let myDog = new Dog();
+let myCat = new Cat();
+
+myDog.speak(); // Output: Dog barks
+myCat.speak(); // Output: Cat meows
+            </code></pre>
+        </section>
+        
+        <section class="main-section" id="Abstraction">
+            <header>Abstraction</header>
+            <p>Abstraction is the concept of hiding the complex reality while exposing only the necessary parts.</p>
+            <p>It helps in reducing programming complexity and increases efficiency.</p>
+            <p>Example:</p>
+            <pre><code>
+class Shape {
+    area() {
+        throw new Error("This method should be overridden!");
+    }
+}
+
+class Rectangle extends Shape {
+    constructor(width, height) {
+        super();
+        this.width = width;
+        this.height = height;
+    }
+
+    area() {
+        return this.width * this.height;
+    }
+}
+
+let myRectangle = new Rectangle(10, 5);
+console.log(myRectangle.area()); // Output: 50
+            </code></pre>
+        </section>
+    </main>
+</body>
+</html>
